@@ -47,7 +47,7 @@ public class TarefaRestResource {
     @ApiOperation(value = "Lista todas as tarefas associadas ao usuário corrente")
 	@RequestMapping(method = GET, produces = "application/json")
 	public List<TarefaDto> tarefas() {
-    	return registry.getApplications().getRegisteredApplications().stream()
+    	return registry.getApplications().getRegisteredApplications().parallelStream()
     		.flatMap(servico -> tarefas(servico).stream())
     		.collect(Collectors.toList());
 	}
