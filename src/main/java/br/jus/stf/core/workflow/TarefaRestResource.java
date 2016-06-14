@@ -56,7 +56,7 @@ public class TarefaRestResource {
 	private List<TarefaDto> tarefas(Application application) {
 		 return application.getInstances().stream()
 			.findAny()
-			.filter(instance -> instance.getMetadata().get("hasApiTarefas") == "true")
+			.filter(instance -> instance.getMetadata().get("hasApiTarefas").equals("true"))
 			.map(instance -> restTemplate.getForObject(getURI(instance), List.class)) 
 			.orElse(Collections.emptyList());
 	}
@@ -67,7 +67,7 @@ public class TarefaRestResource {
 	 */
 	private URI getURI(InstanceInfo instance) {
 		String serviceUri = String.format("%s://%s:%s", 
-				(instance.isPortEnabled(PortType.SECURE)) ? "https" : "http", instance.getVIPAddress(), instance.getPort());
+				(instance.isPortEnabled(PortType.SECURE)) ? "https" : "http", instance.getHostName(), instance.getPort());
 		return UriComponentsBuilder.fromUriString(serviceUri).path("/api/tarefas").build().toUri();
 	}
     
