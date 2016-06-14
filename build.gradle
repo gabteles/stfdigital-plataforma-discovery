@@ -4,6 +4,7 @@ buildscript {
         springPlatformVersion = '2.0.5.RELEASE'
         dependencyManagementPlugin = '0.5.2.RELEASE'
         springCloudVersion = '1.1.0.RELEASE'
+        swaggerVersion = '1.0.2'
     }
     repositories {
         mavenLocal()
@@ -55,10 +56,19 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-undertow")
     
     compile("org.springframework.cloud:spring-cloud-starter-eureka-server")
+    
+    compile("br.jus.stf.digital:core:0.0.1-SNAPSHOT") {
+        exclude module: 'spring-boot-starter-data-elasticsearch'
+        exclude module: 'activiti-spring-boot-starter-basic'
+        exclude module: 'flyway-core'
+    }
+    
+    compile("com.mangofactory:swagger-springmvc:$swaggerVersion")
 }
 
 docker {
     name jar.baseName
     dockerfile 'src/main/docker/Dockerfile'
+    files 'truststores/truststore.jks'
     dependsOn tasks.jar, tasks.bootRepackage, tasks.build
 }
