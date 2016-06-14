@@ -56,8 +56,8 @@ public class TarefaRestResource {
 	private List<TarefaDto> tarefas(Application application) {
 		 return application.getInstances().stream()
 			.findAny()
-			.filter(instance -> instance.getMetadata().get("hasApiTarefas").equals("true"))
-			.map(instance -> restTemplate.getForObject(getURI(instance), List.class)) 
+			.filter(instance -> "true".equals(instance.getMetadata().get("hasApiTarefas")))
+			.map(instance -> restTemplate.getForObject(getURI(instance), List.class))
 			.orElse(Collections.emptyList());
 	}
 
