@@ -15,8 +15,6 @@ eureka:
     fetchRegistry: false
     healthcheck:
       enabled: true
-  instance:
-    preferIpAddress: true
            
 http:
   client:
