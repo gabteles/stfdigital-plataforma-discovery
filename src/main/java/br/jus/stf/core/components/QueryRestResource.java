@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wordnik.swagger.annotations.ApiOperation;
 
-import br.jus.stf.core.framework.component.query.QueryConfig;
-
 /**
  * @author lucas.rodrigues
  *
@@ -24,8 +22,8 @@ public class QueryRestResource {
 	
 	@ApiOperation("Serviço que agrega as pesquisas de cada serviço")
 	@RequestMapping(value = "/queries", method = RequestMethod.GET, produces = "application/json")
-	public List<QueryConfig> queries() throws Exception {
-		return componentService.list("queries", QueryConfig.class);
+	public List<QueryDto> queries() throws Exception {
+		return componentService.list("queries", QueryDto.class);
 	}
 
 }

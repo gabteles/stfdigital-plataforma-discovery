@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wordnik.swagger.annotations.ApiOperation;
 
-import br.jus.stf.core.framework.component.command.CommandConfig;
-
 /**
  * Interface rest que informa todos os comandos disponíveis ao usuário
  * 
@@ -32,15 +30,14 @@ public class CommandRestResource {
 	
 	@ApiOperation("Serviço que agrega os comandos de cada serviço")
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json")
-	public List<CommandConfig> commands() throws Exception {
-		return componentService.list("commands", CommandConfig.class);
+	public List<CommandDto> commands() throws Exception {
+		return componentService.list("commands", CommandDto.class);
 	}
 	
-	@ApiOperation("Serviço que agrega os comandos de cada serviço")
+	@ApiOperation("Serviço que agrega os comandos que iniciam processos de cada serviço")
 	@RequestMapping(value = "/start-process", method = RequestMethod.GET, produces = "application/json")
-	public List<CommandConfig> startProcessCommands() throws Exception {
-		return componentService.list("commands", CommandConfig.class).stream()
-				.map(command -> (CommandConfig)(command))
+	public List<CommandDto> startProcessCommands() throws Exception {
+		return componentService.list("commands", CommandDto.class).stream()
 				.filter(command -> command.isStartProcess())
 				.collect(Collectors.toList());
 	}

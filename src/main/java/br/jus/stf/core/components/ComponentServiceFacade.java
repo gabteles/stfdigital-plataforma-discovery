@@ -1,5 +1,6 @@
 package br.jus.stf.core.components;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -12,10 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.shared.Application;
-import com.netflix.eureka.EurekaServerContext;
 import com.netflix.eureka.registry.PeerAwareInstanceRegistry;
-
-import br.jus.stf.core.framework.component.ComponentConfig;
 
 /**
  * Interface rest que informa todos os componentes disponíveis ao usuário
@@ -26,14 +24,10 @@ import br.jus.stf.core.framework.component.ComponentConfig;
 @Component
 public class ComponentServiceFacade {
 	
+	@Autowired
 	private PeerAwareInstanceRegistry registry;
 	
 	private ObjectMapper mapper = new ObjectMapper();
-	
-	@Autowired
-	public ComponentServiceFacade(EurekaServerContext context) {
-		registry = context.getRegistry();
-	}
 
 	/**
 	 * Consulta cada serviço
@@ -45,23 +39,23 @@ public class ComponentServiceFacade {
 	 */
 	//TODO: Filtrar apenas os componentes permitidos para o usuário com @SecuredResource
 	@SuppressWarnings("unchecked")
-	public <T extends ComponentConfig> List<T> list(String metadataName, Class<T> configClass) throws Exception {
+	public <T extends ComponentDto> List<T> list(String metadataName, Class<T> compClass) throws Exception {
 		return (List<T>) registry.getApplications().getRegisteredApplications().stream()
-			.flatMap(app -> componentsByApplication(app, metadataName, configClass).stream())
+			.flatMap(app -> componentsByApplication(app, metadataName, compClass).stream())
 			.collect(Collectors.toList());
 	}
 
 	/**
 	 * Consulta a primeira instância de cada serviço encontrado
 	 * 
-	 * @param serviceId
+	 * @param app
 	 * @param metadataName
-	 * @param configClass
+	 * @param compClass
 	 * @return lista de componentes
 	 */
-	private List<ComponentConfig> componentsByApplication(Application app, String metadataName, Class<?> configClass) {
+	private List<ComponentDto> componentsByApplication(Application app, String metadataName, Class<?> compClass) {
 		return app.getInstances().stream().findAny()
-			.map(instance -> componentsByInstance(instance, metadataName, configClass))
+			.map(instance -> componentsByInstance(instance, metadataName, compClass))
 			.orElse(Collections.emptyList());
 	}
 
@@ -74,12 +68,14 @@ public class ComponentServiceFacade {
 	 * @return lista de componentes
 	 */
 	@SuppressWarnings("unchecked")
-	private List<ComponentConfig> componentsByInstance(InstanceInfo instance, String metadataName, Class<?> configClass) {
+	private List<ComponentDto> componentsByInstance(InstanceInfo instance, String metadataName, Class<?> configClass) {
 		return Optional.ofNullable(instance.getMetadata().get(metadataName))
 			.map(components -> {
 				try {
-					CollectionType type = mapper.getTypeFactory().constructCollectionType(List.class, configClass);
-					return (List<ComponentConfig>) mapper.readValue(components, type);
+					CollectionType type = mapper.getTypeFactory().constructCollectionType(ArrayList.class, configClass);
+					List<ComponentDto> ctxComponents = (List<ComponentDto>) mapper.readValue(components, type);
+					ctxComponents.stream().forEach(ctxComponent -> ctxComponent.setContext(instance.getAppName().toLowerCase()));
+					return ctxComponents;
 				} catch (Exception e) {
 					throw new RuntimeException("Erro ao carregar componentes.", e);
 				}	
