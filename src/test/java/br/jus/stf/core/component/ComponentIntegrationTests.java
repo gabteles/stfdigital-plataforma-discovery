@@ -43,7 +43,7 @@ import br.jus.stf.core.integrationtest.ContextInitializer;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@WebIntegrationTest({"server.port:0"})
+@WebIntegrationTest({"server.port:0", "eureka.client.enabled:false"})
 @SpringApplicationConfiguration(ContextInitializer.class)
 public class ComponentIntegrationTests {
 
