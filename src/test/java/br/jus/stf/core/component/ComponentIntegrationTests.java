@@ -43,7 +43,7 @@ import br.jus.stf.core.integrationtest.ContextInitializer;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@WebIntegrationTest
+@WebIntegrationTest({"server.port:0"})
 @SpringApplicationConfiguration(ContextInitializer.class)
 public class ComponentIntegrationTests {
 
