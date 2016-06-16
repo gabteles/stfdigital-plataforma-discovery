@@ -64,9 +64,11 @@ dependencies {
     testCompile("com.jayway.jsonpath:json-path")
 }
 
+ext.dockerImageTag = project.hasProperty('dockerImageTag') ? project.getProperty('dockerImageTag') : ''
+
 docker {
-    name jar.baseName
+    name jar.baseName + (dockerImageTag ? ':' + dockerImageTag : '')
     dockerfile 'src/main/docker/Dockerfile'
-    files 'truststores/truststore.jks'
+    files 'src/main/docker/docker-entrypoint.sh', 'truststores/truststore.jks'
     dependsOn tasks.jar, tasks.bootRepackage, tasks.build
 }
