@@ -51,10 +51,6 @@ public class ComponentIntegrationTests {
     private WebApplicationContext wac;
 
     private MockMvc mockMvc;
-    
-    private static ObjectMapper mapper = new ObjectMapper();
-    
-    private static PeerAwareInstanceRegistry registry;
 
     @Before
     public void setup() throws JsonProcessingException {
@@ -116,6 +112,8 @@ public class ComponentIntegrationTests {
     	query.setId("query");
     	query.setRoute(route);
     	
+    	ObjectMapper mapper = new ObjectMapper();
+    	
     	Map<String, String> dados = new HashMap<String, String>();
     	dados.put("commands", "[" + mapper.writeValueAsString(command)  + "]");
     	dados.put("queries", "[" + mapper.writeValueAsString(query)  + "]");
@@ -128,7 +126,7 @@ public class ComponentIntegrationTests {
     	
     	@Bean
     	public PeerAwareInstanceRegistry peerAwareInstanceRegistry() throws JsonProcessingException {
-    		registry = Mockito.mock(PeerAwareInstanceRegistry.class);
+    		PeerAwareInstanceRegistry registry = Mockito.mock(PeerAwareInstanceRegistry.class);
     		
             Applications apps = Mockito.mock(Applications.class);
             List<Application> registeredApps = mockApplications();
