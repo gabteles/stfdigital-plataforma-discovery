@@ -1,6 +1,8 @@
 package br.jus.stf.core.components;
 
 /**
+ * Metadados do comando
+ * 
  * @author lucas.rodrigues
  *
  */
@@ -8,8 +10,8 @@ public class CommandDto implements ComponentDto {
 
 	private String id;
     private String description;
+    private Target target;
     private RouteDto route;
-    private String targetType;
     private boolean listable;
     private boolean startProcess;
     private String context;
@@ -30,20 +32,20 @@ public class CommandDto implements ComponentDto {
     	this.description = description;
     }
 	
+	public Target getTarget() {
+		return target;
+	}
+
+	public void setTarget(Target target) {
+		this.target = target;
+	}
+
 	public RouteDto getRoute() {
 		return route;
 	}
 
 	public void setRoute(RouteDto route) {
 		this.route = route;
-	}
-
-	public String getTargetType() {
-		return targetType;
-	}
-
-	public void setTargetType(String targetType) {
-		this.targetType = targetType;
 	}
 
 	public boolean isListable() {
@@ -68,6 +70,32 @@ public class CommandDto implements ComponentDto {
 
 	public void setContext(String context) {
 		this.context = context;
+	}
+	
+	/**
+	 * Encapsula as configurações do objeto de domínio alvo do comando
+	 */
+	public class Target {
+		
+	    private String type;
+	    private String mode;
+	    
+		public String getType() {
+			return type;
+		}
+		
+		public void setType(String type) {
+			this.type = type;
+		}
+
+		public String getMode() {
+			return mode;
+		}
+
+		public void setMode(String mode) {
+			this.mode = mode;
+		} 
+		
 	}
 	
 }
