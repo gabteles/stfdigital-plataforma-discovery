@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.netflix.appinfo.InstanceInfo;
@@ -27,7 +28,12 @@ public class ComponentServiceFacade {
 	@Autowired
 	private PeerAwareInstanceRegistry registry;
 	
-	private ObjectMapper mapper = new ObjectMapper();
+	private ObjectMapper mapper;
+	
+	public ComponentServiceFacade() {
+		 mapper = new ObjectMapper();
+		 mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+	}
 
 	/**
 	 * Consulta cada serviço
