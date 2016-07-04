@@ -1,7 +1,7 @@
 FROM frolvlad/alpine-oraclejdk8:slim
 VOLUME /tmp
-ADD discovery.jar app.jar
+ADD app-lib-layer/lib/ /app/lib/
+ADD app-layer/ /app/
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 ADD truststore.jks truststores/truststore.jks
-RUN sh -c 'touch /app.jar'
 ENTRYPOINT ["/docker-entrypoint.sh"]
