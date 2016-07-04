@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -41,13 +40,10 @@ public class TarefaRestResource {
 		registry = context.getRegistry();
 	}
 	
-	@Autowired
-	DiscoveryClient discoveryClient;
-	
     @ApiOperation(value = "Lista todas as tarefas associadas ao usuário corrente")
 	@RequestMapping(method = GET, produces = "application/json")
 	public List<TarefaDto> tarefas() {
-    	return registry.getApplications().getRegisteredApplications().parallelStream()
+    	return registry.getApplications().getRegisteredApplications().stream()
     		.flatMap(servico -> tarefas(servico).stream())
     		.collect(Collectors.toList());
 	}
@@ -66,8 +62,7 @@ public class TarefaRestResource {
 	 * @return
 	 */
 	private URI getURI(InstanceInfo instance) {
-		String serviceUri = String.format("%s://%s:%s", 
-				(instance.isPortEnabled(PortType.SECURE)) ? "https" : "http", instance.getHostName(), instance.getPort());
+		String serviceUri = String.format("%s://%s:%s", instance.isPortEnabled(PortType.SECURE) ? "https" : "http", instance.getHostName(), instance.getPort());
 		return UriComponentsBuilder.fromUriString(serviceUri).path("/api/tarefas").build().toUri();
 	}
     
