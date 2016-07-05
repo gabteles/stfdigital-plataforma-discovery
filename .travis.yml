@@ -1,21 +1,24 @@
 sudo: required
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
 services:
-  - docker
+- docker
 addons:
   hosts:
-    - docker
+  - docker
 before_cache:
-  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
-  - docker save -o $HOME/docker_cache/docker.tar stfdigital-plataforma-discovery $(docker history -q stfdigital-plataforma-discovery | tail -n +2 | grep -v \<missing\> | tr '\n' ' ')
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+- docker save -o $HOME/docker_cache/docker.tar stfdigital-plataforma-discovery $(docker history -q stfdigital-plataforma-discovery | tail -n +2 | grep -v \<missing\> | tr '\n' ' ')
 cache:
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/docker_cache
+  - "$HOME/.gradle/caches/"
+  - "$HOME/docker_cache"
 before_install:
-  - ./scripts/upgrade-docker.sh
-  - mkdir -p $HOME/docker_cache
+- "./scripts/upgrade-docker.sh"
+- mkdir -p $HOME/docker_cache
 install: docker load -i $HOME/docker_cache/docker.tar || true
 script: gradle docker
+notifications:
+  slack:
+    secure: MjjRefcVIc5y5zmKQafjRGZjlAWixwkcFR+dFa/VMzCfTYE5lkv3VJzvzakWNMKqkQwtxfGi9JqTxp9/NI0blWrXfKAoLcgwqNQ6CMUjjbKMlaDE11W6qAGphFl2SenL2FLYfo1IGobZfd6dKXvkxhEkSpfjlhxlA32eWhJ78UkOg7OsIUXBnhgN5hTFXeTaP3EFsOHRLmDxc++IDqesfgKxe3chISn/Om1As/NDrSDnEnQQRzWhmMpvulNvnz2AVH2M5h9/59UCVLwAzoJjfTJUrYEhX6pTL3FiULfyLf/Zm9hElZeTz5RAY2ewQrcutbRJwnymNUVvQ+NSYYUOEtfHHfCNQo3Q07XeSXLFPeyo7PgdCUIelti9rb1fL0y7EEnWFxYxLTOt1p7y0h/J9R+2zrWQu5LXwtMXnqoxJSjbx2Soz5Vqhwj11qZP5962Sz+1ykBfIBEo29aNxNwgemYZAxLmFnacvABEcXq3ZHU1EzP5naVelUNc8Tuwm3qlctlMUNTUts7nNWjY/SwzxVuTK064jiinMukvxDn11fXr0XHtE0uznQ3St4Z7LiihkL+2/mAlMg0g94Ms8ESsCkfOyVWmSOCr2bbzRkamhEmmSP3sLQdV4d/GFY+PE0ih04gyN7Bb7tUkHGJia8q7XoC5YLVgt0t3QMxoZRiD0jU=
