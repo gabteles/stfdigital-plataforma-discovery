@@ -15,11 +15,11 @@ public class TarefaDto {
     
     private String title;
     
-    private String notes;
+    private String command;
     
     private Date startDate;
 
-    private String dueDate;
+    private Date dueDate;
 
     private boolean completed;
     
@@ -27,58 +27,88 @@ public class TarefaDto {
 
     private boolean important;
     
-    private boolean deleted;
+    private String notes;
     
     private List<RotuloDto> tags;
 
-	public TarefaDto(String id, String title, Date startDate, boolean completed, boolean starred, boolean important, List<RotuloDto> tags) {
-		this.id = id;
-		this.title = title;
-		this.startDate = startDate;
-		this.completed = completed;
-		this.starred = starred;
-		this.important = important;
-		this.tags = tags;
-	}
-	
 	public String getId() {
 		return id;
 	}
-	
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getTitle() {
 		return title;
 	}
-	
-	public String getNotes() {
-		return notes;
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	
+
+	public String getCommand() {
+		return command;
+	}
+
+	public void setCommand(String command) {
+		this.command = command;
+	}
+
 	public Date getStartDate() {
 		return startDate;
 	}
-	
-	public String getDueDate() {
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getDueDate() {
 		return dueDate;
 	}
-	
+
+	public void setDueDate(Date dueDate) {
+		this.dueDate = dueDate;
+	}
+
 	public boolean isCompleted() {
 		return completed;
 	}
-	
+
+	public void setCompleted(boolean completed) {
+		this.completed = completed;
+	}
+
 	public boolean isStarred() {
 		return starred;
+	}
+
+	public void setStarred(boolean starred) {
+		this.starred = starred;
 	}
 
 	public boolean isImportant() {
 		return important;
 	}
-	
-	public boolean isDeleted() {
-		return deleted;
+
+	public void setImportant(boolean important) {
+		this.important = important;
 	}
 	
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
 	public List<RotuloDto> getTags() {
 		return tags;
+	}
+
+	public void setTags(List<RotuloDto> tags) {
+		this.tags = tags;
 	}
 
 }
