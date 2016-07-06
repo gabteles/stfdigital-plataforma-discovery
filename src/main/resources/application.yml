@@ -4,6 +4,16 @@ server:
 spring:
   application:
     name: discovery
+  datasource:
+    url: jdbc:h2:mem:discovery;MODE=Oracle;DB_CLOSE_DELAY=-1
+    username: sa
+    password: 
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none
 
 eureka:
   server:
@@ -15,7 +25,10 @@ eureka:
     fetchRegistry: false
     healthcheck:
       enabled: true
-           
+
+flyway:
+  validate-on-migrate: false
+
 http:
   client:
     ssl:
