@@ -16,6 +16,7 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath("io.spring.gradle:dependency-management-plugin:${dependencyManagementPlugin}")
         classpath("gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.8.0")
+        classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.0.1")
     }
 }
 
@@ -30,6 +31,10 @@ apply plugin: 'maven'
 apply plugin: 'java'
 
 apply plugin: "com.palantir.docker"
+
+apply plugin: 'jacoco'
+
+apply plugin: 'org.sonarqube'
 
 repositories {
     mavenLocal()
@@ -79,6 +84,11 @@ eclipse.classpath.file {
         cp.entries.findAll { it instanceof SourceFolder && it.path.startsWith("src/test/") }*.output = "bin/test" 
         cp.entries.removeAll { it.kind == "output" }
     }
+}
+
+// Cobertura de testes
+jacoco {
+    toolVersion = '0.7.7.201606060606'
 }
 
 ext.dockerImageTag = project.hasProperty('dockerImageTag') ? project.getProperty('dockerImageTag') : ''
