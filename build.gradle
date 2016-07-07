@@ -41,6 +41,7 @@ apply plugin: 'org.sonarqube'
 repositories {
     mavenLocal()
     mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 }
 
 dependencyManagement {
