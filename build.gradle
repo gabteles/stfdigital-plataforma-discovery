@@ -72,12 +72,6 @@ dependencies {
     
     compile("com.mangofactory:swagger-springmvc:${swaggerVersion}")
     
-    compile("br.jus.stf.digital:core:${stfdigitalCoreVersion}")
-    
-    compile("com.h2database:h2")
-    
-    compile("org.flywaydb:flyway-core:$flywayVersion")
-    
     testCompile("org.springframework.boot:spring-boot-starter-test")
     
     testCompile("com.jayway.jsonpath:json-path")

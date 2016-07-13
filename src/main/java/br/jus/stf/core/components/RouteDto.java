@@ -10,6 +10,7 @@ public class RouteDto {
     private String stateName;
     private String navigationItem;
     private String translation;
+    private String url;
     private String urlPrefix;
     private String src;
     
@@ -27,6 +28,14 @@ public class RouteDto {
 	
 	public void setStateName(String stateName) {
 		this.stateName = stateName;
+	}
+	
+	public String getUrl() {
+		return url;
+	}
+	
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	
 	public String getUrlPrefix() {
