@@ -35,7 +35,7 @@ public class RouteRestResource {
 	 * @param routes
 	 * @throws Exception
 	 */
-	private List<RouteDto> getRoutes(String metadataName, Class<? extends ComponentDto> ctxClass ) throws Exception {
+	private List<RouteDto> getRoutes(String metadataName, Class<? extends RoutedComponentDto> ctxClass ) throws Exception {
 		return componentService.list(metadataName, ctxClass).stream()
 			.filter(component -> component.getRoute() != null)
 			.map(component -> component.getRoute())

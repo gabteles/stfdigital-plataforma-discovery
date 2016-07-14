@@ -70,4 +70,12 @@ public class ComponentIntegrationTests {
     		.andExpect(jsonPath("$[0].id", is("comando")));
     }
     
+    @Test
+    public void dashboards() throws Exception {
+    	mockMvc.perform(get("/api/dashboards"))
+    		.andExpect(status().is2xxSuccessful())
+    		.andExpect(jsonPath("$[0].id", is("dashboard-01")))
+    		.andExpect(jsonPath("$[0].dashlets[0].id", is("dashlet-01")));
+    }
+    
 }

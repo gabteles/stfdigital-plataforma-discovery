@@ -4,7 +4,7 @@ package br.jus.stf.core.components;
  * @author lucas.rodrigues
  *
  */
-public class QueryDto implements ComponentDto {
+public class QueryDto implements RoutedComponentDto {
 
 	private String id;
     private String description;
@@ -27,14 +27,17 @@ public class QueryDto implements ComponentDto {
     	this.description = description;
     }
 	
+    @Override
 	public RouteDto getRoute() {
 		return route;
 	}
 
+    @Override
 	public void setRoute(RouteDto route) {
 		this.route = route;
 	}
 
+    @Override
 	public String getContext() {
 		return context;
 	}

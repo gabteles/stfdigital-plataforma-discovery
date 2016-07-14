@@ -1,6 +1,7 @@
 package br.jus.stf.core.component;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +20,8 @@ import com.netflix.eureka.registry.PeerAwareInstanceRegistry;
 import br.jus.stf.core.components.CommandDto;
 import br.jus.stf.core.components.QueryDto;
 import br.jus.stf.core.components.RouteDto;
+import br.jus.stf.core.components.dashboards.DashboardDto;
+import br.jus.stf.core.components.dashboards.DashletDto;
 
 /**
  * @author lucas.rodrigues
@@ -66,11 +69,23 @@ public class MockEurekaRegistry {
     	query.setId("query");
     	query.setRoute(route);
     	
+    	DashletDto dashlet = new DashletDto();
+    	dashlet.setId("dashlet-01");
+    	dashlet.setNome("Dashlet 01");
+    	dashlet.setSrc("teste/dashlets");
+    	
+    	DashboardDto dashboard = new DashboardDto();
+    	dashboard.setId("dashboard-01");
+    	dashboard.setNome("Dashboard 01");
+    	dashboard.setDashletsIds(Arrays.asList("dashlet-01"));
+    	
     	ObjectMapper mapper = new ObjectMapper();
     	
     	Map<String, String> dados = new HashMap<String, String>();
     	dados.put("commands", "[" + mapper.writeValueAsString(command)  + "]");
     	dados.put("queries", "[" + mapper.writeValueAsString(query)  + "]");
+    	dados.put("dashlets", "[" + mapper.writeValueAsString(dashlet)  + "]");
+    	dados.put("dashboards", "[" + mapper.writeValueAsString(dashboard)  + "]");
     	
 		return dados;
     }

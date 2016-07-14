@@ -5,10 +5,6 @@ package br.jus.stf.core.components;
  *
  */
 public interface ComponentDto {
-
-	RouteDto getRoute();
-	
-	void setRoute(RouteDto route);
 	
 	String getContext();
 	

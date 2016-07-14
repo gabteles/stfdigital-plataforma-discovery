@@ -6,7 +6,7 @@ package br.jus.stf.core.components;
  * @author lucas.rodrigues
  *
  */
-public class CommandDto implements ComponentDto {
+public class CommandDto implements RoutedComponentDto {
 
 	private String id;
     private String description;
@@ -40,10 +40,12 @@ public class CommandDto implements ComponentDto {
 		this.target = target;
 	}
 
+	@Override
 	public RouteDto getRoute() {
 		return route;
 	}
 
+	@Override
 	public void setRoute(RouteDto route) {
 		this.route = route;
 	}
@@ -64,10 +66,12 @@ public class CommandDto implements ComponentDto {
 		this.startProcess = startProcess;
 	}
 
+	@Override
 	public String getContext() {
 		return context;
 	}
 
+	@Override
 	public void setContext(String context) {
 		this.context = context;
 	}
