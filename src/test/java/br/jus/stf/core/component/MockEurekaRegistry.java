@@ -9,6 +9,7 @@ import java.util.Map;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -28,6 +29,7 @@ import br.jus.stf.core.components.dashboards.DashletDto;
  *
  */
 @Configuration
+@Profile("test")
 public class MockEurekaRegistry {
 	
 	@Bean
