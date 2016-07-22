@@ -8,6 +8,7 @@ buildscript {
         springCloudReleaseTrainVersion = 'Brixton.SR3'
         swaggerVersion = '1.0.2'
         flywayVersion = '4.0.3'
+        jsonjVersion = '2.29'
     }
     repositories {
         mavenLocal()
@@ -76,6 +77,8 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test")
     
     testCompile("com.jayway.jsonpath:json-path")
+    
+    testCompile("com.jillesvangurp:jsonj:${jsonjVersion}")
 }
 
 import org.gradle.plugins.ide.eclipse.model.SourceFolder 
