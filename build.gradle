@@ -95,12 +95,6 @@ jacoco {
     toolVersion = '0.7.7.201606060606'
 }
 
-test {
-    testLogging {
-        showStandardStreams = true
-    }
-}
-
 ext.dockerImageTag = project.hasProperty('dockerImageTag') ? project.getProperty('dockerImageTag') : ''
 
 // Diretório do contexto Docker
