@@ -45,5 +45,4 @@ security:
       
 feign:
   hystrix:
-    enabled: false      
-          
+    enabled: false
