@@ -28,7 +28,7 @@ import br.jus.stf.core.integrationtest.ContextInitializer;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(value = {"server.port:0"}, classes = {ContextInitializer.class, MockEurekaRegistry.class})
-@ActiveProfiles("test")
+@ActiveProfiles({"native", "test"})
 public class ComponentIntegrationTests {
 
     @Autowired

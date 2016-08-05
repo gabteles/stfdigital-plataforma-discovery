@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: discovery
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        bootstrap: true

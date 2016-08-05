@@ -1,11 +1,9 @@
 server:
-  port: 8761
-  
+  port: 8090
+
 spring:
-  application:
-    name: discovery
   datasource:
-    url: jdbc:h2:mem:discovery;MODE=Oracle;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:mem:peticionamento;MODE=Oracle;DB_CLOSE_DELAY=-1
     username: sa
     password: 
   h2:
@@ -15,17 +13,15 @@ spring:
     hibernate:
       ddl-auto: none
 
-eureka:
-  server:
-    enable-self-preservation: false
-  instance:
-    preferIpAddress: true
+eureka:  
   client:
-    register-with-eureka: false
-    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
     healthcheck:
       enabled: true
-
+  instance:
+    preferIpAddress: true
+    
 flyway:
   validate-on-migrate: false
 
@@ -39,3 +35,7 @@ security:
   oauth2:
     resource:
       user-info-uri: http://userauthentication:8095/user
+      
+feign:
+  hystrix:
+    enabled: false      

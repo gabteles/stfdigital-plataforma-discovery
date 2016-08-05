@@ -1,0 +1,24 @@
+server:
+  port: 8761
+
+eureka:
+  server:
+    enable-self-preservation: false
+  instance:
+    preferIpAddress: true
+  client:
+    register-with-eureka: false
+    fetchRegistry: false
+    healthcheck:
+      enabled: true
+
+http:
+  client:
+    ssl:
+      trust-store: truststores/truststore.jks
+      trust-store-password: changeit
+      
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://userauthentication:8095/user
