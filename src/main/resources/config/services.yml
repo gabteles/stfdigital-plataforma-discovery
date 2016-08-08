@@ -36,20 +36,4 @@ security:
       
 feign:
   hystrix:
-    enabled: false      
-
----
-
-spring:
-  profiles: development
-eureka:
-  instance:
-    preferIpAddress: true
-
----
-
-spring:
-  profiles: docker
-eureka:
-  instance:
-    preferIpAddress: false
+    enabled: false
