@@ -19,8 +19,6 @@ eureka:
       defaultZone: http://discovery:8761/eureka/
     healthcheck:
       enabled: true
-  instance:
-    preferIpAddress: true
     
 flyway:
   validate-on-migrate: false
@@ -39,3 +37,19 @@ security:
 feign:
   hystrix:
     enabled: false      
+
+---
+
+spring:
+  profiles: development
+eureka:
+  instance:
+    preferIpAddress: true
+
+---
+
+spring:
+  profiles: docker
+eureka:
+  instance:
+    preferIpAddress: false
