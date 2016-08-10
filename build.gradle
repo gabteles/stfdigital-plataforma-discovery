@@ -80,6 +80,8 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test")
     
     testCompile("com.jayway.jsonpath:json-path")
+
+    testCompile("org.springframework.security:spring-security-test")    
 }
 
 // Cobertura de testes

@@ -49,4 +49,12 @@ public class DashletDto implements ComponentDto {
 		this.context = context;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        
+        return id.equals(((DashletDto) o).id);
+	}
 }

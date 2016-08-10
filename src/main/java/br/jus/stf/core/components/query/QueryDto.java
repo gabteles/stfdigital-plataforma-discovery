@@ -59,4 +59,13 @@ public class QueryDto implements RoutedComponentDto {
 		this.context = context;
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        
+        return id.equals(((QueryDto) o).id);
+	}
+	
 }

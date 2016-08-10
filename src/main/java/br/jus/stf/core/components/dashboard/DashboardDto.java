@@ -61,4 +61,13 @@ public class DashboardDto implements ComponentDto {
 		this.context = context;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        
+        return id.equals(((DashboardDto) o).id);
+	}
+	
 }

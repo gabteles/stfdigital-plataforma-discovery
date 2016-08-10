@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -29,6 +30,7 @@ import br.jus.stf.core.integrationtest.ContextInitializer;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(value = {"server.port:0"}, classes = {ContextInitializer.class, MockEurekaRegistry.class})
 @ActiveProfiles({"native", "test"})
+@WithMockUser
 public class ComponentIntegrationTests {
 
     @Autowired
@@ -63,7 +65,7 @@ public class ComponentIntegrationTests {
     		.andExpect(jsonPath("$", hasSize(2)));
     }
     
-    @Test
+	@Test
     public void startProcessCommands() throws Exception {
     	mockMvc.perform(get("/api/commands/start-process"))
     		.andExpect(status().is2xxSuccessful())
