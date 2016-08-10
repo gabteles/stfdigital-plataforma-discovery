@@ -69,6 +69,7 @@ public class MockEurekaRegistry {
     	
     	QueryDto query = new QueryDto();
     	query.setId("query");
+    	query.setType("SEARCH");
     	query.setRoute(route);
     	
     	DashletDto dashlet = new DashletDto();
