@@ -1,10 +1,12 @@
 package br.jus.stf.core.components;
 
 /**
- * @author lucas.rodrigues
- *
+ * @author Lucas Rodrigues
+ * @author Rodrigo Barreiros
  */
 public interface ComponentDto {
+	
+	String getId();
 	
 	String getContext();
 	

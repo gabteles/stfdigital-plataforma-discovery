@@ -16,6 +16,8 @@ import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.shared.Application;
 import com.netflix.eureka.registry.PeerAwareInstanceRegistry;
 
+import br.jus.stf.core.components.security.SecuredResource;
+
 /**
  * Interface rest que informa todos os componentes disponíveis ao usuário
  * 
@@ -43,7 +45,7 @@ public class ComponentServiceFacade {
 	 * @return lista de componentes
 	 * @throws Exception 
 	 */
-	//TODO: Filtrar apenas os componentes permitidos para o usuário com @SecuredResource
+	@SecuredResource
 	@SuppressWarnings("unchecked")
 	public <T extends ComponentDto> List<T> list(String metadataName, Class<T> compClass) throws Exception {
 		return (List<T>) registry.getApplications().getRegisteredApplications().stream()
