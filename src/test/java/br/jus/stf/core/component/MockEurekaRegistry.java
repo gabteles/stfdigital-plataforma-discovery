@@ -18,11 +18,11 @@ import com.netflix.discovery.shared.Application;
 import com.netflix.discovery.shared.Applications;
 import com.netflix.eureka.registry.PeerAwareInstanceRegistry;
 
-import br.jus.stf.core.components.CommandDto;
-import br.jus.stf.core.components.QueryDto;
-import br.jus.stf.core.components.RouteDto;
-import br.jus.stf.core.components.dashboards.DashboardDto;
-import br.jus.stf.core.components.dashboards.DashletDto;
+import br.jus.stf.core.components.command.CommandDto;
+import br.jus.stf.core.components.dashboard.DashboardDto;
+import br.jus.stf.core.components.dashboard.DashletDto;
+import br.jus.stf.core.components.navigation.RouteDto;
+import br.jus.stf.core.components.query.QueryDto;
 
 /**
  * @author lucas.rodrigues

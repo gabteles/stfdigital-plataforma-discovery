@@ -1,4 +1,4 @@
-package br.jus.stf.core.components;
+package br.jus.stf.core.components.navigation;
 
 /**
  * @author lucas.rodrigues

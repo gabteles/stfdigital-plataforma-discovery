@@ -1,4 +1,4 @@
-package br.jus.stf.core.components;
+package br.jus.stf.core.components.command;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wordnik.swagger.annotations.ApiOperation;
+
+import br.jus.stf.core.components.ComponentServiceFacade;
 
 /**
  * Interface rest que informa todos os comandos disponíveis ao usuário

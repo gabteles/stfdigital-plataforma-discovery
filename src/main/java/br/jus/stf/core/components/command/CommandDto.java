@@ -1,4 +1,7 @@
-package br.jus.stf.core.components;
+package br.jus.stf.core.components.command;
+
+import br.jus.stf.core.components.navigation.RouteDto;
+import br.jus.stf.core.components.navigation.RoutedComponentDto;
 
 /**
  * Metadados do comando

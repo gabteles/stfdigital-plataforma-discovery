@@ -1,4 +1,4 @@
-package br.jus.stf.core.components.dashboards;
+package br.jus.stf.core.components.dashboard;
 
 import java.util.List;
 import java.util.Optional;

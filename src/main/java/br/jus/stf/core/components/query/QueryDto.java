@@ -1,4 +1,7 @@
-package br.jus.stf.core.components;
+package br.jus.stf.core.components.query;
+
+import br.jus.stf.core.components.navigation.RouteDto;
+import br.jus.stf.core.components.navigation.RoutedComponentDto;
 
 /**
  * @author lucas.rodrigues
@@ -8,6 +11,7 @@ public class QueryDto implements RoutedComponentDto {
 
 	private String id;
     private String description;
+    private String type;
     private RouteDto route;
     private String context;
     
@@ -27,7 +31,15 @@ public class QueryDto implements RoutedComponentDto {
     	this.description = description;
     }
 	
-    @Override
+    public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	@Override
 	public RouteDto getRoute() {
 		return route;
 	}

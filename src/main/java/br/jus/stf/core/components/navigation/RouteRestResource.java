@@ -1,4 +1,4 @@
-package br.jus.stf.core.components;
+package br.jus.stf.core.components.navigation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wordnik.swagger.annotations.ApiOperation;
+
+import br.jus.stf.core.components.ComponentServiceFacade;
+import br.jus.stf.core.components.command.CommandDto;
+import br.jus.stf.core.components.query.QueryDto;
 
 /**
  * @author lucas.rodrigues
