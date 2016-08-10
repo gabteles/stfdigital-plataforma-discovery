@@ -79,6 +79,15 @@ public class CommandDto implements RoutedComponentDto {
 		this.context = context;
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        
+        return id.equals(((CommandDto) o).id);
+	}
+	
 	/**
 	 * Encapsula as configurações do objeto de domínio alvo do comando
 	 */
