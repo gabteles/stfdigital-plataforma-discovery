@@ -9,11 +9,8 @@ DOCKER_COMPOSE_VERSION=1.7.0
 # list docker-engine versions
 apt-cache madison docker-engine
 
-# update repository keys
-sudo apt-key update
-
 # upgrade docker-engine to specific version
-sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-engine=${DOCKER_VERSION}
+sudo apt-get -o Dpkg::Options::="--force-confnew" install -y --force-yes docker-engine=${DOCKER_VERSION}
 
 # reinstall docker-compose at specific version
 sudo rm /usr/local/bin/docker-compose
