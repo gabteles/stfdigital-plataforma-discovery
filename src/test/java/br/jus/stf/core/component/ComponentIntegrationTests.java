@@ -51,7 +51,7 @@ public class ComponentIntegrationTests {
     
     @Test
     public void queries() throws Exception {
-    	mockMvc.perform(get("/api/queries"))
+    	mockMvc.perform(get("/api/queries/searchs"))
     		.andExpect(status().is2xxSuccessful())
     		.andExpect(jsonPath("$[0].id", is("query")));
     }
