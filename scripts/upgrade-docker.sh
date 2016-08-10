@@ -19,4 +19,4 @@ DOCKER_COMPOSE_VERSION=1.7.0
 #sudo mv docker-compose /usr/local/bin
 
 docker version
-docker-compose version
+#docker-compose version
