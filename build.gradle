@@ -7,6 +7,7 @@ buildscript {
         sonarqubeGradlePluginVersion = '2.0.1'
         springCloudReleaseTrainVersion = 'Brixton.SR4'
         swaggerVersion = '1.0.2'
+        logstashLogbackEncoderVersion = '4.7'
     }
     repositories {
         mavenLocal()
@@ -73,6 +74,8 @@ dependencies {
     compile("org.springframework.cloud:spring-cloud-config-server")
     
     compile("com.mangofactory:swagger-springmvc:${swaggerVersion}")
+    
+    compile("net.logstash.logback:logstash-logback-encoder:${logstashLogbackEncoderVersion}")
     
     testCompile("org.springframework.boot:spring-boot-starter-test")
     
