@@ -22,3 +22,9 @@ security:
   oauth2:
     resource:
       user-info-uri: http://userauthentication:8095/user
+
+spring:
+  cloud:
+    config:
+      server:
+        prefix: configuration
