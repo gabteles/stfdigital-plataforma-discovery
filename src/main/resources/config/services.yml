@@ -18,6 +18,9 @@ spring:
 
 eureka:  
   client:
+    instance:
+      statusPageUrlPath: ${management.contextPath}/info
+      healthCheckUrlPath: ${management.contextPath}/health  
     serviceUrl:
       defaultZone: http://discovery:8761/eureka/
     healthcheck:
