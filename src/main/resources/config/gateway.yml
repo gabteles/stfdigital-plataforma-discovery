@@ -12,11 +12,9 @@ management:
 info:
   component: Zuul Server
 
-eureka:  
-  client:
-    instance:
-      statusPageUrlPath: ${management.contextPath}/info
-      healthCheckUrlPath: ${management.contextPath}/health  
+eureka:
+
+  client: 
     serviceUrl:
       defaultZone: http://discovery:8761/eureka/
     healthcheck:
@@ -27,6 +25,8 @@ eureka:
     non-secure-port-enabled: false
     secure-port-enabled: true
     secure-port: ${server.port}
+    statusPageUrlPath: ${management.contextPath}/info
+    healthCheckUrlPath: ${management.contextPath}/health    
     
 security:
   oauth2:
