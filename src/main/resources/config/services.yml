@@ -1,5 +1,8 @@
 server:
   port: 8081
+  
+management:
+  contextPath: /manage
 
 spring:
   datasource:

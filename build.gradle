@@ -8,6 +8,8 @@ buildscript {
         springCloudReleaseTrainVersion = 'Brixton.SR4'
         swaggerVersion = '1.0.2'
         logstashLogbackEncoderVersion = '4.7'
+        springBootAdminVersion = '1.4.1'
+        springHateoasVersion = '0.20.0.RELEASE'
     }
     repositories {
         mavenLocal()
@@ -54,14 +56,16 @@ dependencyManagement {
     }
 }
 
+configurations.all {
+	exclude module: 'spring-boot-starter-tomcat'
+}
+
 dependencies {
     compile("org.springframework.boot:spring-boot-starter")
     
     compile("org.springframework.boot:spring-boot-starter-actuator")
         
-    compile("org.springframework.boot:spring-boot-starter-web") {
-        exclude module: 'spring-boot-starter-tomcat'
-    }
+    compile("org.springframework.boot:spring-boot-starter-web")
     
     compile("org.springframework.boot:spring-boot-starter-undertow")
     
@@ -76,6 +80,12 @@ dependencies {
     compile("com.mangofactory:swagger-springmvc:${swaggerVersion}")
     
     compile("net.logstash.logback:logstash-logback-encoder:${logstashLogbackEncoderVersion}")
+    
+    compile("de.codecentric:spring-boot-admin-server:${springBootAdminVersion}")
+    
+    compile("de.codecentric:spring-boot-admin-server-ui:${springBootAdminVersion}")
+    
+    compile("org.springframework.hateoas:spring-hateoas:${springHateoasVersion}")
     
     testCompile("org.springframework.boot:spring-boot-starter-test")
     

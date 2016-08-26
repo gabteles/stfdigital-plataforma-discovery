@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+    <jmxConfigurator/>
+    
 	<springProperty name="appName" source="spring.application.name"/>
 	
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -34,7 +36,8 @@
     <logger name="org.springframework.remoting" level="WARN"/>
     <logger name="org.springframework.scheduling" level="WARN"/>
     <logger name="org.springframework.messaging" level="WARN"/>
-    <logger name="org.springframework.cloud.config" level="WARN"/>
+    <logger name="org.springframework.cloud" level="WARN"/>
+    <logger name="org.springframework.ui" level="WARN"/>
     <logger name="org.activiti.engine" level="WARN"/>
     <logger name="org.hibernate" level="WARN"/>
     <logger name="org.hibernate.SQL" level="WARN"/>
@@ -51,7 +54,11 @@
     <logger name="org.springframework.jdbc" level="WARN"/>
     <logger name="io.undertow" level="WARN"/>
     <logger name="org.xnio" level="WARN"/>
-    <logger name="com.netflix.discovery" level="WARN"/>    
+    <logger name="com.netflix.config" level="WARN"/>
+    <logger name="com.netflix.eureka" level="WARN"/>
+    <logger name="com.netflix.discovery" level="WARN"/>
+    <logger name="de.codecentric.boot.admin" level="WARN"/>
+    <logger name="com.sun.jersey" level="WARN"/>
     
 </configuration>
 

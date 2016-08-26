@@ -1,6 +1,9 @@
 server:
   port: 8091
 
+management:
+  contextPath: /manage
+
 spring:
   datasource:
     url: jdbc:h2:mem:recebimento;MODE=Oracle;DB_CLOSE_DELAY=-1
