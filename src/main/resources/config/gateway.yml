@@ -5,20 +5,16 @@ server:
     key-store-password: changeit
     key-store-type: PKCS12
     key-alias: docker
-    
+
+management:
+  contextPath: /manage
+   
 info:
   component: Zuul Server
 
-endpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
-  health:
-    sensitive: false
+eureka:
 
-eureka:  
-  client:
+  client: 
     serviceUrl:
       defaultZone: http://discovery:8761/eureka/
     healthcheck:
@@ -29,6 +25,8 @@ eureka:
     non-secure-port-enabled: false
     secure-port-enabled: true
     secure-port: ${server.port}
+    statusPageUrlPath: ${management.contextPath}/info
+    healthCheckUrlPath: ${management.contextPath}/health    
     
 security:
   oauth2:

@@ -7,6 +7,8 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
+import de.codecentric.boot.admin.config.EnableAdminServer;
+
 /**
  * @author Rodrigo Barreiros
  * 
@@ -18,6 +20,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableResourceServer
 @EnableEurekaServer
 @EnableConfigServer
+@EnableAdminServer
 public class ApplicationContextInitializer {
 	
 	public static void main(String[] args) {
