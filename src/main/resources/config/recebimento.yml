@@ -39,7 +39,5 @@ security:
   oauth2:
     resource:
       user-info-uri: http://userauthentication:8095/user
-      
-feign:
-  hystrix:
-    enabled: false
+
+hystrix.command.default.execution.isolation.strategy: SEMAPHORE
