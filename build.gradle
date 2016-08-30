@@ -5,7 +5,7 @@ buildscript {
         dependencyManagementPlugin = '0.6.0.RELEASE'
         gradleDockerPluginVersion = '0.8.0'
         sonarqubeGradlePluginVersion = '2.0.1'
-        springCloudReleaseTrainVersion = 'Brixton.SR4'
+        springCloudReleaseTrainVersion = 'Brixton.SR5'
         swaggerVersion = '1.0.2'
         logstashLogbackEncoderVersion = '4.7'
         springBootAdminVersion = '1.4.1'

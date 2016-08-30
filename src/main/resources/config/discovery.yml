@@ -41,7 +41,6 @@ spring:
       discovery:
         converter:
           managementContextPath: /manage
-
 turbine:
   appConfig: discovery,documents,services,autuacao,distribuicao,peticionamento,recebimento
   instanceUrlSuffix: /manage/hystrix.stream
