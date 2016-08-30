@@ -1,34 +1,14 @@
 server:
   port: 8761
-  
-management:
-  contextPath: /manage
 
 eureka:
   server:
     enable-self-preservation: false
   instance:
     preferIpAddress: true
-    statusPageUrlPath: ${management.contextPath}/info
-    healthCheckUrlPath: ${management.contextPath}/health
   client:
     register-with-eureka: true
     fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://discovery:${server.port}/eureka/
-    healthcheck:
-      enabled: true
-
-http:
-  client:
-    ssl:
-      trust-store: truststores/truststore.jks
-      trust-store-password: changeit
-      
-security:
-  oauth2:
-    resource:
-      user-info-uri: http://userauthentication:8095/user
 
 spring:
   cloud:

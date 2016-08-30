@@ -1,4 +1,45 @@
 spring:
+  datasource:
+    url: jdbc:h2:mem:${spring.application.name};MODE=Oracle;DB_CLOSE_DELAY=-1
+    username: sa
+    password: 
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none   
   rabbitmq:
     host: rabbit
     port: 5672
+    
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://userauthentication:8095/user
+    
+management:
+  contextPath: /manage
+  
+http:
+  client:
+    ssl:
+      trust-store: truststores/truststore.jks
+      trust-store-password: changeit    
+
+eureka:
+  instance:
+    statusPageUrlPath: ${management.contextPath}/info
+    healthCheckUrlPath: ${management.contextPath}/health
+  client: 
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/     
+    healthcheck:
+      enabled: true
+    
+flyway:
+  validate-on-migrate: false
+  
+feign:
+  hystrix:
+    enabled: false  
