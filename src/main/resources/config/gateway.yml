@@ -12,6 +12,7 @@ info:
 eureka:     
   instance:
     preferIpAddress: false
+    hostname: gateway
     non-secure-port-enabled: false
     secure-port-enabled: true
     secure-port: ${server.port}
