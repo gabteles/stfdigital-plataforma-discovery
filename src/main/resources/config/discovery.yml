@@ -21,3 +21,9 @@ spring:
       discovery:
         converter:
           managementContextPath: /manage
+          
+http:
+  client:
+    ssl:
+      trust-store: truststores/truststore.jks
+      trust-store-password: changeit  
