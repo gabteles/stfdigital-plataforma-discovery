@@ -40,4 +40,6 @@ eureka:
 flyway:
   validate-on-migrate: false
   
-hystrix.command.default.execution.isolation.strategy: SEMAPHORE
+hystrix.command.default.execution.isolation:
+  strategy: SEMAPHORE
+  thread.timeoutInMilliseconds: 10000
