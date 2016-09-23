@@ -1,10 +1,11 @@
 server:
   port: 8094
 
-mongo:
-  host: mongo
-  databaseName: documento
-
 onlyoffice:
   server:
     address: https://docker:443
+    
+cassandra:
+  keyspace: documents
+  contactpoints: cassandra
+  port: 9042
