@@ -8,7 +8,8 @@ spring:
       enabled: true
   jpa:
     hibernate:
-      ddl-auto: none   
+      ddl-auto: none
+      use-new-id-generator-mappings: true
   rabbitmq:
     host: rabbit
     port: 5672
