@@ -13,6 +13,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import de.codecentric.boot.admin.config.EnableAdminServer;
 
 /**
+ * Classe para incialização da aplicação.
+ * 
  * @author Rodrigo Barreiros
  * 
  * @since 1.0.0
