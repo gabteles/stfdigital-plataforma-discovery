@@ -29,7 +29,7 @@ http:
       trust-store-password: changeit
 
 turbine:
-  appConfig: discovery,documents,services,autuacao,distribuicao,peticionamento,recebimento
+  appConfig: discovery,documents,processos,autuacao,distribuicao,peticionamento,recebimento
   instanceUrlSuffix: /manage/hystrix.stream
   clusterNameExpression: new String("default")
   combineHostPort: true
