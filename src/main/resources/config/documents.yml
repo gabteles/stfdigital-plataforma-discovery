@@ -1,11 +1,13 @@
 server:
   port: 8094
 
+spring:
+  data:
+    cassandra:
+      port: 9042
+      keyspace-name: documents
+      contact-points: cassandra
+
 onlyoffice:
   server:
     address: https://docker:443
-    
-cassandra:
-  keyspace: documents
-  contactpoints: cassandra
-  port: 9042
