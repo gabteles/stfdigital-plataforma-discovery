@@ -1,11 +1,4 @@
 spring:
-  datasource:
-    url: jdbc:h2:mem:${spring.application.name};MODE=Oracle;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    username: sa
-    password: 
-  h2:
-    console:
-      enabled: true
   jpa:
     hibernate:
       ddl-auto: none
@@ -40,6 +33,7 @@ eureka:
     
 flyway:
   validate-on-migrate: false
+  table: SCHEMA_VERSION
   
 hystrix.command.default.execution.isolation:
   strategy: SEMAPHORE
