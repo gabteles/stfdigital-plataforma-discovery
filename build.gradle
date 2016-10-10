@@ -8,7 +8,7 @@ buildscript {
         springCloudReleaseTrainVersion = 'Brixton.SR6'
         swaggerVersion = '1.0.2'
         logstashLogbackEncoderVersion = '4.7'
-        springBootAdminVersion = '1.4.1'
+        springBootAdminVersion = '1.4.2'
         springHateoasVersion = '0.20.0.RELEASE'
     }
     repositories {
