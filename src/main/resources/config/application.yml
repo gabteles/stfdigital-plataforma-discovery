@@ -14,7 +14,7 @@ spring:
 security:
   oauth2:
     resource:
-      user-info-uri: http://userauthentication:8095/user
+      user-info-uri: http://identidades:8095/user
     
 management:
   contextPath: /manage
