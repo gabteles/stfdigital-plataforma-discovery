@@ -13,5 +13,8 @@ spring:
 onlyoffice:
   server:
     address: https://digital.stf.jus.br:9443
+  integration:
+    address: onlyoffice
+    port: 9443
   documentserver:
     host: digital.stf.jus.br
