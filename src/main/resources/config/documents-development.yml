@@ -1,0 +1,3 @@
+onlyoffice:
+  server:
+    address: https://docker:443

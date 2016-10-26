@@ -10,3 +10,8 @@ spring:
     initialize: false
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
+onlyoffice:
+  server:
+    address: https://onlyoffice:443
+  documentserver:
+    host: digital.stf.jus.br
