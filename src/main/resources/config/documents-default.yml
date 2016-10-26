@@ -12,6 +12,6 @@ spring:
     database-platform: org.hibernate.dialect.Oracle10gDialect
 onlyoffice:
   server:
-    address: https://onlyoffice:443
+    address: https://digital.stf.jus.br:9443
   documentserver:
-    host: digital.stf.jus.br
+    host: onlyoffice
