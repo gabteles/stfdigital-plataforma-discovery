@@ -14,4 +14,4 @@ onlyoffice:
   server:
     address: https://digital.stf.jus.br:9443
   documentserver:
-    host: onlyoffice
+    host: digital.stf.jus.br
